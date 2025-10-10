@@ -66,4 +66,28 @@ await prisma.recentProject.upsert({
   },
 });
 
+await prisma.homeTestimonial.createMany({
+  data: [
+    {
+      userName: "Devesh kumar Singh",
+      userLocation: "Gurugram, IN",
+      userReview:
+        "Team delivered exactly what we wanted—on time and with great design sense.",
+      userProfile: "https://example.com/avatars/aarav.jpg",
+      image: "https://example.com/photos/after1.jpg",
+      order: 1,
+    },
+    {
+      userName: "Kashish Singh",
+      userLocation: "Mumbai, IN",
+      userReview:
+        "Smooth process and fantastic interior finish. Highly recommended!",
+      userProfile: "https://example.com/avatars/riya.jpg",
+      image: "https://example.com/photos/after2.jpg",
+      order: 2,
+    },
+  ],
+  skipDuplicates: true,
+});
+
 main().finally(() => prisma.$disconnect());
