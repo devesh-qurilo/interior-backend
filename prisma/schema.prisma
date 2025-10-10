@@ -101,6 +101,7 @@ model RecentProject {
   isFeatured       Boolean   @default(false)
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
+  imageUrl        String[]
 }
 
 

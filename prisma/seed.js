@@ -43,10 +43,10 @@ async function main() {
 }
 
 await prisma.recentProject.upsert({
-  where: { slug: "royal-villa-mumbai1" },
+  where: { slug: "royal-villa-mumbai3" },
   update: {},
   create: {
-    slug: "royal-villa-mumbai1",
+    slug: "royal-villa-mumbai3",
     title: "rahul gandhi ji is great person",
     description: "Modern classic overhaul with warm palette. ......",
     propertyType: "Villa",
@@ -57,6 +57,12 @@ await prisma.recentProject.upsert({
     beforeImageUrl: "https://example.com/before.jpg",
     afterImageUrl: "https://example.com/after.jpg",
     isFeatured: true,
+    imageUrl: [
+      "https://example.com/after.jpg",
+      "https://example.com/before.jpg",
+      "https://example.com/before.jpg",
+      "https://example.com/before.jpg",
+    ],
   },
 });
 

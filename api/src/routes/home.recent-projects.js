@@ -24,6 +24,7 @@ r.get("/", async (req, res) => {
       designHighlights: true,
       beforeImageUrl: true,
       afterImageUrl: true,
+      imageUrl: true,
     },
   });
 
@@ -54,6 +55,7 @@ r.get("/:slug", async (req, res) => {
       afterImageUrl: true,
       createdAt: true,
       updatedAt: true,
+      imageUrl: true,
     },
   });
 
