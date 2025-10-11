@@ -11,6 +11,8 @@ import homeRecentProjects from "./routes/home.recent-projects.js";
 import homeTestimonials from "./routes/home.testimonials.js";
 import projectVideos from "./routes/project.videos.js";
 import homeFeatureProjects from "./routes/home.feature-projects.js";
+import adminAuth from "./routes/admin.auth.js";
+import adminCloudinary from "./routes/admin.uploads.cloudinary.js";
 
 const app = express();
 app.use(cors());
@@ -28,5 +30,8 @@ app.use("/api/projects", projects);
 app.use("/api/project/videos", projectVideos);
 app.use("/api/contact", contact);
 app.use("/api/quotations", quotations);
+
+app.use("/api/admin/auth", adminAuth);
+app.use("/api/admin/uploads/cloudinary", adminCloudinary);
 
 export default app;
