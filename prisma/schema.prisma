@@ -34,16 +34,21 @@ model Service {
 
 /* PROJECTS: portfolio items */
 model Project {
-  id          Int      @id @default(autoincrement())
-  title       String
-  slug        String   @unique
-  summary     String?
-  description String?
-  coverUrl    String?
-  tags        String[] // ["react","node"] etc.
-  isFeatured  Boolean  @default(false)
-  updatedAt   DateTime @updatedAt
-  createdAt   DateTime @default(now())
+  id               Int       @id @default(autoincrement())
+  slug             String    @unique
+  title            String
+  description      String?
+  propertyType     String?
+  area             String?      // e.g., "1200 sq ft"
+  layout           String?      // e.g., "2BHK"
+  location         String?
+  designHighlights String[]     // bullet points
+  beforeImageUrl   String[]
+  afterImageUrl    String[]
+  isFeatured       Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  imageUrl        String[]
 }
 
 /* CONTACT: incoming messages from the form */
@@ -96,8 +101,27 @@ model RecentProject {
   layout           String?      // e.g., "2BHK"
   location         String?
   designHighlights String[]     // bullet points
-  beforeImageUrl   String?
-  afterImageUrl    String?
+  beforeImageUrl   String[]
+  afterImageUrl    String[]
+  isFeatured       Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  imageUrl        String[]
+}
+
+
+model FeatureProject {
+  id               Int       @id @default(autoincrement())
+  slug             String    @unique
+  title            String
+  description      String?
+  propertyType     String?
+  area             String?      // e.g., "1200 sq ft"
+  layout           String?      // e.g., "2BHK"
+  location         String?
+  designHighlights String[]     // bullet points
+  beforeImageUrl   String[]
+  afterImageUrl    String[]
   isFeatured       Boolean   @default(false)
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
@@ -117,4 +141,18 @@ model HomeTestimonial {
   isActive      Boolean  @default(true)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+}
+
+
+
+model ProjectVideo {
+  id           Int      @id @default(autoincrement())
+  title        String
+  videoUrl     String            // mp4 link, Vimeo, YouTube, etc.
+  thumbnailUrl String?           // optional preview image
+  projectSlug  String?           // optional: tie to a specific project page
+  order        Int      @default(0)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

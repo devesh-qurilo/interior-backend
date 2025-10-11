@@ -9,6 +9,8 @@ import quotations from "./routes/quotations.js";
 import homeStats from "./routes/home.stats.js";
 import homeRecentProjects from "./routes/home.recent-projects.js";
 import homeTestimonials from "./routes/home.testimonials.js";
+import projectVideos from "./routes/project.videos.js";
+import homeFeatureProjects from "./routes/home.feature-projects.js";
 
 const app = express();
 app.use(cors());
@@ -19,9 +21,11 @@ app.get("/api/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
 app.use("/api/home", home);
 app.use("/api/home/stats", homeStats);
 app.use("/api/home/recent-projects", homeRecentProjects);
+app.use("/api/home/feature-projects", homeFeatureProjects);
 app.use("/api/home/testimonials", homeTestimonials);
 app.use("/api/services", services);
 app.use("/api/projects", projects);
+app.use("/api/project/videos", projectVideos);
 app.use("/api/contact", contact);
 app.use("/api/quotations", quotations);
 

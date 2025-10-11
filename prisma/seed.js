@@ -54,14 +54,58 @@ await prisma.recentProject.upsert({
     layout: "4BHK",
     location: "Mumbai",
     designHighlights: ["Italian marble", "Smart lighting", "Open kitchen"],
-    beforeImageUrl: "https://example.com/before.jpg",
-    afterImageUrl: "https://example.com/after.jpg",
+    beforeImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+    afterImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
     isFeatured: true,
     imageUrl: [
-      "https://example.com/after.jpg",
-      "https://example.com/before.jpg",
-      "https://example.com/before.jpg",
-      "https://example.com/before.jpg",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+  },
+});
+
+await prisma.featureProject.upsert({
+  where: { slug: "the-kapoor-villa" },
+  update: {},
+  create: {
+    slug: "the-kapoor-villa",
+    title: "The Kapoor Villa",
+    description: "Modern classic overhaul with warm palette. ......",
+    propertyType: "Villa",
+    area: "3200 sq ft",
+    layout: "4BHK",
+    location: "Mumbai",
+    designHighlights: ["Italian marble", "Smart lighting", "Open kitchen"],
+    beforeImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+    afterImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+    isFeatured: true,
+    imageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
     ],
   },
 });
@@ -73,8 +117,10 @@ await prisma.homeTestimonial.createMany({
       userLocation: "Gurugram, IN",
       userReview:
         "Team delivered exactly what we wanted—on time and with great design sense.",
-      userProfile: "https://example.com/avatars/aarav.jpg",
-      image: "https://example.com/photos/after1.jpg",
+      userProfile:
+        "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Ellipse_4_k4gbuo.png",
+      image:
+        "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
       order: 1,
     },
     {
@@ -83,11 +129,66 @@ await prisma.homeTestimonial.createMany({
       userReview:
         "Smooth process and fantastic interior finish. Highly recommended!",
       userProfile: "https://example.com/avatars/riya.jpg",
-      image: "https://example.com/photos/after2.jpg",
+      image:
+        "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
       order: 2,
     },
   ],
   skipDuplicates: true,
+});
+
+await prisma.projectVideo.createMany({
+  data: [
+    {
+      title: "Villa Living Room Walkthrough",
+      videoUrl: "https://example.com/videos/villa-living.mp4",
+      thumbnailUrl: "https://example.com/thumbs/villa-living.jpg",
+      projectSlug: "royal-villa-mumbai",
+      order: 1,
+    },
+    {
+      title: "Modern Kitchen Tour",
+      videoUrl: "https://example.com/videos/kitchen-tour.mp4",
+      thumbnailUrl: "https://example.com/thumbs/kitchen-tour.jpg",
+      projectSlug: "royal-villa-mumbai",
+      order: 2,
+    },
+  ],
+  skipDuplicates: true,
+});
+
+await prisma.project.upsert({
+  where: { slug: "royal-villa-mumbai3" },
+  update: {},
+  create: {
+    slug: "royal-villa-mumbai3",
+    title: "rahul gandhi ji is great person",
+    description: "Modern classic overhaul with warm palette. ......",
+    propertyType: "Villa",
+    area: "3200 sq ft",
+    layout: "4BHK",
+    location: "Mumbai",
+    designHighlights: ["Italian marble", "Smart lighting", "Open kitchen"],
+    beforeImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+    afterImageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+    isFeatured: true,
+    imageUrl: [
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102197/Frame_2147227311_vdbcq9.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
+    ],
+  },
 });
 
 main().finally(() => prisma.$disconnect());
