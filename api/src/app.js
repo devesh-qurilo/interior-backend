@@ -13,6 +13,7 @@ import projectVideos from "./routes/project.videos.js";
 import homeFeatureProjects from "./routes/home.feature-projects.js";
 import adminAuth from "./routes/admin.auth.js";
 import adminCloudinary from "./routes/admin.uploads.cloudinary.js";
+import adminProjects from "./routes/admin.projects.js";
 
 const app = express();
 app.use(cors());
@@ -33,5 +34,6 @@ app.use("/api/quotations", quotations);
 
 app.use("/api/admin/auth", adminAuth);
 app.use("/api/admin/uploads/cloudinary", adminCloudinary);
+app.use("/api/admin/projects", adminProjects);
 
 export default app;

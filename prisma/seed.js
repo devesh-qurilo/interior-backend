@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
+import bcrypt from "bcrypt";
 
 async function main() {
   const items = [
@@ -189,6 +190,15 @@ await prisma.project.upsert({
       "https://res.cloudinary.com/dqwc7j44b/image/upload/v1760102196/Frame_2147227312_jmxl0s.png",
     ],
   },
+});
+
+const password = "your-default-password"; // Change this to a secure password
+const hash = await bcrypt.hash(password, 10);
+
+await prisma.adminUser.upsert({
+  where: { email: "admin@demo.com" },
+  update: {},
+  create: { email: "admin@demo.com", password: hash, name: "Admin" },
 });
 
 main().finally(() => prisma.$disconnect());
