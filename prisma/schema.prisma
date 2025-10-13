@@ -39,16 +39,17 @@ model Project {
   title            String
   description      String?
   propertyType     String?
-  area             String?      // e.g., "1200 sq ft"
-  layout           String?      // e.g., "2BHK"
+  area             String?
+  layout           String?
   location         String?
-  designHighlights String[]     // bullet points
+  designHighlights String[]
   beforeImageUrl   String[]
   afterImageUrl    String[]
+  imageUrl         String[]
   isFeatured       Boolean   @default(false)
+  featuredOrder    Int?                      // <— add this
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
-  imageUrl        String[]
 }
 
 /* CONTACT: incoming messages from the form */
