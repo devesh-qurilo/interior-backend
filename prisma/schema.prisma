@@ -159,19 +159,39 @@ model ProjectVideo {
 }
 
 
+
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
 model ContactInquiry {
   id            Int      @id @default(autoincrement())
   name          String
   email         String
-  contactNo     String?      // keep as string to preserve leading zeros, country code, etc.
+  contactNo     String?
   projectType   String?
   propertyType  String?
-  totalArea     String?      // e.g., "1200 sq ft"
+  totalArea     String?
   numberOfRoom  Int?
-  budgetsRange  String?      // e.g., "₹5–8L" or "$10k–$15k"
-  timeToStart   String?      // e.g., "Immediately", "1–3 months"
+  budgetsRange  String?
+  timeToStart   String?
   message       String
+  status        InquiryStatus @default(NEW)   // <-- NEW
   createdAt     DateTime @default(now())
+  notes         InquiryNote[]                 // <-- NEW (relation)
+}
+
+model InquiryNote {
+  id         Int      @id @default(autoincrement())
+  inquiryId  Int
+  body       String
+  adminName  String?     // or adminId if you add Admin relation
+  createdAt  DateTime @default(now())
+
+  inquiry    ContactInquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
 }
 
 

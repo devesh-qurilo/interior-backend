@@ -16,6 +16,9 @@ import adminCloudinary from "./routes/admin.uploads.cloudinary.js";
 import adminProjects from "./routes/admin.projects.js";
 import adminFeature from "./routes/admin.projects.feature.js";
 import adminFeatureBulk from "./routes/admin.projects.feature.bulk.js";
+import adminEnquiries from "./routes/admin.enquiries.js";
+import adminEnqStatus from "./routes/admin.enquiries.status.js";
+import adminEnqNotes from "./routes/admin.enquiries.notes.js";
 
 const app = express();
 app.use(cors());
@@ -40,5 +43,8 @@ app.use("/api/admin/projects", adminProjects);
 
 app.use("/api/admin/projects", adminFeature); // /:id/feature
 app.use("/api/admin/projects", adminFeatureBulk);
+app.use("/api/admin/enquiries", adminEnquiries);
+app.use("/api/admin/enquiries", adminEnqStatus);
+app.use("/api/admin/enquiries", adminEnqNotes);
 
 export default app;
