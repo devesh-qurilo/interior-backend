@@ -200,7 +200,8 @@ model InquiryNote {
 model AdminUser {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  password  String   // bcrypt hash
+  password  String
   name      String?
+  avatarUrl String?          // <— NEW
   createdAt DateTime @default(now())
 }
