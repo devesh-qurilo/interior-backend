@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon api/dev.js",
     "start": "node api/index.js",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "vercel-build": "prisma migrate deploy && prisma generate"
   },
   "keywords": [],
   "author": "",
