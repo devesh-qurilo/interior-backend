@@ -22,39 +22,39 @@ import adminEnqNotes from "./routes/admin.enquiries.notes.js";
 import adminMe from "./routes/admin.me.js";
 import adminPwd from "./routes/admin.password.js";
 
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-// app.use(morgan("dev"));
-
-// app.get("/api/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
-// app.use("/api/home", home);
-// app.use("/api/home/stats", homeStats);
-// app.use("/api/home/recent-projects", homeRecentProjects);
-// app.use("/api/home/feature-projects", homeFeatureProjects);
-// app.use("/api/home/testimonials", homeTestimonials);
-// app.use("/api/services", services);
-// app.use("/api/projects", projects);
-// app.use("/api/project/videos", projectVideos);
-// app.use("/api/contact", contact);
-// app.use("/api/quotations", quotations);
-
-// app.use("/api/admin/auth", adminAuth);
-// app.use("/api/admin/uploads/cloudinary", adminCloudinary);
-// app.use("/api/admin/projects", adminProjects);
-
-// app.use("/api/admin/projects", adminFeature);
-// app.use("/api/admin/projects", adminFeatureBulk);
-// app.use("/api/admin/enquiries", adminEnquiries);
-// app.use("/api/admin/enquiries", adminEnqStatus);
-// app.use("/api/admin/enquiries", adminEnqNotes);
-
-// app.use("/api/admin/me", adminMe);
-// app.use("/api/admin", adminPwd);
-
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json());
 app.use(morgan("dev"));
+
+app.get("/api/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
+app.use("/api/home", home);
+app.use("/api/home/stats", homeStats);
+app.use("/api/home/recent-projects", homeRecentProjects);
+app.use("/api/home/feature-projects", homeFeatureProjects);
+app.use("/api/home/testimonials", homeTestimonials);
+app.use("/api/services", services);
+app.use("/api/projects", projects);
+app.use("/api/project/videos", projectVideos);
+app.use("/api/contact", contact);
+app.use("/api/quotations", quotations);
+
+app.use("/api/admin/auth", adminAuth);
+app.use("/api/admin/uploads/cloudinary", adminCloudinary);
+app.use("/api/admin/projects", adminProjects);
+
+app.use("/api/admin/projects", adminFeature);
+app.use("/api/admin/projects", adminFeatureBulk);
+app.use("/api/admin/enquiries", adminEnquiries);
+app.use("/api/admin/enquiries", adminEnqStatus);
+app.use("/api/admin/enquiries", adminEnqNotes);
+
+app.use("/api/admin/me", adminMe);
+app.use("/api/admin", adminPwd);
+
+// const app = express();
+// app.use(cors());
+// app.use(express.json({ limit: "10mb" }));
+// app.use(morgan("dev"));
 
 export default app;
